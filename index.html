@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sara Giberti | Portfolio</title>
+    <link rel="icon" type="image/png" sizes="64x64" href="images/favicon.png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap-grid.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <header class="site-header">
+  <a href="index.html" aria-label="Sara Giberti — Home">SG</a>
+
+  <nav
+    class="site-nav justify-content-md-end"
+    id="menu-principale"
+    aria-label="Navigazione principale"
+  >
+    <a href="graphic-design.html">Graphic Design</a>
+    <a href="illustrazioni.html">Illustrazioni</a>
+    <a href="curriculum.html">CV</a>
+    <a href="contattami.html">Contattami</a>
+  </nav>
+
+  <button
+    class="menu-toggle"
+    type="button"
+    aria-controls="menu-principale"
+    aria-expanded="false"
+    aria-label="Apri menu"
+  >
+    <span aria-hidden="true">☰</span>
+  </button>
+</header>
+<main>
+    <img class="home-hero" src="images/portfolio-hero.png" alt="Illustrazione Portfolio">
+    <section class="intro">
+  <h1>Hi! I’m Sara</h1>
+  <h2>Sono una graphic designer e illustratrice</h2>
+  <p>
+    Creo identità visive, interfacce e illustrazioni per dare
+    forma alle idee e raccontarle attraverso le immagini.
+  </p>
+</section>
+<section class="lavori">
+  <h2>Esplora i miei lavori</h2>
+
+  <div class="lavori-grid">
+    <article class="lavoro-card">
+      <img
+        src="images/graphic-design-cover.png"
+        alt="Progetto di identità visiva Sunnee Beachwear"
+        loading="lazy"
+      >
+
+      <h3>Graphic design e UX/UI</h3>
+
+      <p>
+        Dall’identità di un brand alla progettazione di un’interfaccia:
+        una selezione di progetti in cui unisco ricerca, creatività
+        e attenzione ai dettagli.
+      </p>
+
+      <a class="link-cta" href="graphic-design.html">
+        <span>Scopri i progetti</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </article>
+
+    <article class="lavoro-card">
+      <img
+        src="images/illustrazioni-cover.png"
+        alt="Illustrazione di un cuore con personaggi e fiori"
+        loading="lazy"
+      >
+
+      <h3>Illustrazioni</h3>
+
+      <p>
+        Personaggi, mondi immaginari e composizioni digitali.
+        Uno spazio dedicato alla sperimentazione e al racconto visivo.
+      </p>
+
+      <a class="link-cta" href="illustrazioni.html">
+        <span>Guarda le illustrazioni</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </article>
+  </div>
+</section>
+<div class="profilo">
+  <div class="profilo-inner">
+    <section class="about">
+      <h2>Conosciamoci meglio</h2>
+
+      <p>
+        Mi chiamo Sara, sono una graphic designer e illustratrice freelance.
+        Mi occupo di identità visiva, illustrazione e progettazione
+        di interfacce digitali.
+      </p>
+
+      <p>
+        Ho sempre avuto una grande passione per il design e l’illustrazione,
+        perché mi permettono di sperimentare e creare soluzioni visive
+        capaci di raccontare e trasmettere qualcosa.
+      </p>
+
+      <p>
+        Sono una persona creativa, organizzata e curiosa con tanta voglia
+        di mettermi in gioco. Ogni nuovo progetto è per me un’occasione
+        per esprimermi e continuare a imparare cose nuove.
+      </p>
+
+      <a class="link-cta" href="curriculum.html">
+        <span>Scopri il mio CV</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </section>
+
+    <img
+      class="profilo-foto"
+      src="images/sara.png"
+      alt="Sara Giberti"
+      width="499"
+      height="658"
+      loading="lazy"
+    >
+
+    <section class="contatto-banner">
+      <h2>Hai un progetto in mente?</h2>
+      <p>Raccontami la tua idea: sarò felice di conoscerla.</p>
+
+      <a class="link-cta" href="contattami.html">
+        <span>Contattami</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </section>
+  </div>
+</div>
+</main>
+<script>
+  const pulsanteMenu = document.querySelector(".menu-toggle");
+  const menu = document.querySelector(".site-nav");
+
+  pulsanteMenu.addEventListener("click", () => {
+    const aperto =
+      pulsanteMenu.getAttribute("aria-expanded") === "true";
+
+    pulsanteMenu.setAttribute("aria-expanded", String(!aperto));
+    pulsanteMenu.setAttribute(
+      "aria-label",
+      aperto ? "Apri menu" : "Chiudi menu"
+    );
+
+    pulsanteMenu.querySelector("span").textContent =
+      aperto ? "☰" : "×";
+
+    menu.classList.toggle("is-open", !aperto);
+  });
+</script>
+</body>
+</html>

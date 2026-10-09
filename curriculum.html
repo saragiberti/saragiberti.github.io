@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curriculum | Sara Giberti</title>
+  <link rel="icon" type="image/png" sizes="64x64" href="images/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap-grid.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <a href="index.html" aria-label="Sara Giberti — Home">SG</a>
+
+    <nav class="site-nav justify-content-md-end" id="menu-principale"
+         aria-label="Navigazione principale">
+      <a href="graphic-design.html">Graphic Design</a>
+      <a href="illustrazioni.html">Illustrazioni</a>
+      <a href="curriculum.html" aria-current="page">CV</a>
+      <a href="contattami.html">Contattami</a>
+    </nav>
+
+    <button class="menu-toggle" type="button"
+            aria-controls="menu-principale"
+            aria-expanded="false"
+            aria-label="Apri menu">
+      <span aria-hidden="true">☰</span>
+    </button>
+  </header>
+
+  <main class="cv">
+    <nav class="breadcrumb" aria-label="Percorso di navigazione">
+      <a href="index.html">Home</a> / <span aria-current="page">CV</span>
+    </nav>
+
+    <div class="cv-titolo">
+      <h1>Curriculum</h1>
+      <p class="cv-nome">Sara Giberti</p>
+      <p>Graphic designer e illustratrice</p>
+    </div>
+
+    <section class="cv-profilo">
+      <div>
+        <h2>Profilo</h2>
+        <p>
+          Sono Sara, una graphic designer e illustratrice che ama
+          trasformare le idee in progetti capaci di raccontare qualcosa.
+          Sto approfondendo le mie competenze in UX/UI design, branding
+          ed esperienze digitali. Il mio obiettivo è continuare a crescere
+          come designer e creare lavori significativi e visivamente
+          coinvolgenti.
+        </p>
+      </div>
+
+      <img class="cv-foto" src="images/sara.png"
+           alt="Sara Giberti" width="499" height="658">
+    </section>
+
+    <div class="cv-colonne">
+      <div class="cv-percorso">
+        <section>
+          <h2>Esperienza</h2>
+
+          <h3 class="cv-titolo-dettaglio">Graphic designer e illustratrice freelance</h3>
+          <p>
+            Progetto identità visive, loghi e materiali grafici per clienti
+            e progetti diversi. Mi occupo dello sviluppo del concept,
+            della progettazione degli elementi visivi e della preparazione
+            dei materiali finali.
+          </p>
+
+          <h3>Segretaria di agenzia — Banca Fideuram</h3>
+          <p>
+            Ho lavorato a supporto di consulenti finanziari, occupandomi
+            dell’organizzazione e della gestione della documentazione,
+            supportavo i consulenti nelle attività quotidiane e assistevo
+            i clienti.
+          </p>
+        </section>
+
+        <section>
+          <h2>Formazione</h2>
+
+          <h3>Master in UX/UI Design e Agenti AI — Start2Impact</h3>
+          <p>
+            Un percorso di formazione in ricerca UX, wireframing,
+            progettazione di interfacce, prototipazione, accessibilità
+            e strumenti digitali.
+          </p>
+
+          <h3>Formazione in graphic design e strumenti digitali</h3>
+          <p>
+            Corsi dedicati ad Adobe Illustrator, Adobe Photoshop,
+            Adobe XD e Procreate, affiancati da altri percorsi
+            di formazione creativa.
+          </p>
+
+          <h3>Laurea in Scienze dell’Amministrazione e dell’Organizzazione</h3>
+          <p>Università San Raffaele di Roma</p>
+        </section>
+      </div>
+
+      <section class="cv-competenze">
+        <h2>Competenze</h2>
+
+        <h3 class="cv-titolo-dettaglio">Design</h3>
+        <p>
+          Identità visiva, logo design, illustrazione digitale,
+          wireframing, UI design e prototipazione.
+        </p>
+
+        <h3>Strumenti</h3>
+        <p>
+          Adobe Illustrator, Adobe Photoshop, Adobe XD,
+          Figma e Procreate.
+        </p>
+
+        <h3>Lingue</h3>
+        <p>
+          Italiano madrelingua, Spagnolo con certificazione DELE B2,
+          Inglese.
+        </p>
+      </section>
+    </div>
+
+    <section class="cv-progetti">
+      <h2>Vuoi saperne di più sul mio lavoro?</h2>
+      <a class="link-cta" href="graphic-design.html">
+        <span>Scopri i miei progetti</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </section>
+  </main>
+
+  <section class="cv-contatto">
+    <div>
+      <h2>Hai un progetto in mente?</h2>
+      <p>Raccontami la tua idea: sarò felice di conoscerla.</p>
+
+      <a class="link-cta" href="contattami.html">
+        <span>Contattami</span>
+        <span aria-hidden="true">→</span>
+      </a>
+    </div>
+  </section>
+
+  <script>
+    const pulsanteMenu = document.querySelector(".menu-toggle");
+    const menu = document.querySelector(".site-nav");
+
+    pulsanteMenu.addEventListener("click", () => {
+      const aperto = pulsanteMenu.getAttribute("aria-expanded") === "true";
+
+      pulsanteMenu.setAttribute("aria-expanded", String(!aperto));
+      pulsanteMenu.setAttribute(
+        "aria-label",
+        aperto ? "Apri menu" : "Chiudi menu"
+      );
+
+      pulsanteMenu.querySelector("span").textContent = aperto ? "☰" : "×";
+      menu.classList.toggle("is-open", !aperto);
+    });
+  </script>
+</body>
+</html>

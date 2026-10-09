@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contattami | Sara Giberti</title>
+  <link rel="icon" type="image/png" sizes="64x64" href="images/favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap-grid.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="site-header">
+    <a href="index.html" aria-label="Sara Giberti — Home">SG</a>
+
+    <nav class="site-nav justify-content-md-end" id="menu-principale"
+         aria-label="Navigazione principale">
+      <a href="graphic-design.html">Graphic Design</a>
+      <a href="illustrazioni.html">Illustrazioni</a>
+      <a href="curriculum.html">CV</a>
+      <a href="contattami.html" aria-current="page">Contattami</a>
+    </nav>
+
+    <button class="menu-toggle" type="button"
+            aria-controls="menu-principale"
+            aria-expanded="false"
+            aria-label="Apri menu">
+      <span aria-hidden="true">☰</span>
+    </button>
+  </header>
+
+  <main class="contatti">
+    <nav class="breadcrumb" aria-label="Percorso di navigazione">
+  <a href="index.html">Home</a> /
+  <span aria-current="page">Contattami</span>
+</nav>
+
+    <div class="contatti-grid">
+      <div class="contatti-intro">
+        <h1>Contattami</h1>
+
+        <p class="contatti-domanda">
+          Hai un progetto di graphic design, un’idea da illustrare
+          o vuoi parlarmi di una possibile collaborazione?
+        </p>
+
+        <p>
+          Raccontami di cosa si tratta attraverso il modulo qui sotto.
+        </p>
+      </div>
+
+      <form
+  class="contatti-form"
+  action="https://formspree.io/f/moejjedp"
+  method="POST"
+>
+        <div class="form-campo">
+          <label for="nome">Nome *</label>
+          <input id="nome" name="nome" type="text"
+                 autocomplete="name" required>
+        </div>
+
+        <div class="form-campo">
+          <label for="email">Email *</label>
+          <input id="email" name="email" type="email"
+                 autocomplete="email" required>
+        </div>
+
+        <div class="form-campo">
+          <label for="oggetto">Oggetto *</label>
+          <input id="oggetto" name="oggetto" type="text" required>
+        </div>
+
+        <div class="form-campo">
+          <label for="messaggio">Il tuo messaggio *</label>
+          <textarea id="messaggio" name="messaggio" required></textarea>
+        </div>
+
+        <p class="campi-obbligatori">* Campi obbligatori</p>
+
+        <button class="form-invia" type="submit">
+          Invia il messaggio
+        </button>
+
+        <p class="form-esito" role="status"></p>
+      </form>
+
+      <section class="contatti-progetti">
+        <h2>Vuoi saperne di più sul mio lavoro?</h2>
+
+        <a class="link-cta" href="graphic-design.html">
+          <span>Scopri i miei progetti</span>
+          <span aria-hidden="true">→</span>
+        </a>
+      </section>
+    </div>
+  </main>
+
+  <footer class="contatti-footer">
+    <p>Sara Giberti · Graphic designer e illustratrice</p>
+  </footer>
+
+  <script>
+    const pulsanteMenu = document.querySelector(".menu-toggle");
+    const menu = document.querySelector(".site-nav");
+
+    pulsanteMenu.addEventListener("click", () => {
+      const aperto = pulsanteMenu.getAttribute("aria-expanded") === "true";
+
+      pulsanteMenu.setAttribute("aria-expanded", String(!aperto));
+      pulsanteMenu.setAttribute(
+        "aria-label",
+        aperto ? "Apri menu" : "Chiudi menu"
+      );
+
+      pulsanteMenu.querySelector("span").textContent = aperto ? "☰" : "×";
+      menu.classList.toggle("is-open", !aperto);
+    });
+  </script>
+</body>
+</html>
