@@ -22,6 +22,13 @@
 
 <body>
   <header class="site-header">
+    <input
+  class="menu-state"
+  type="checkbox"
+  id="menu-state"
+  aria-label="Mostra o nascondi il menu principale"
+  aria-controls="menu-principale"
+>
     <a href="index.html" aria-label="Sara Giberti — Home">SG</a>
 
     <nav
@@ -34,16 +41,10 @@
       <a href="curriculum.html">CV</a>
       <a href="contattami.html">Contattami</a>
     </nav>
-
-    <button
-      class="menu-toggle"
-      type="button"
-      aria-controls="menu-principale"
-      aria-expanded="false"
-      aria-label="Apri menu"
-    >
-      <span aria-hidden="true">☰</span>
-    </button>
+    <label class="menu-toggle" for="menu-state">
+  <span class="menu-icon-open" aria-hidden="true">☰</span>
+  <span class="menu-icon-close" aria-hidden="true">×</span>
+</label>
   </header>
 
   <main class="illustrazioni-page">
@@ -256,45 +257,5 @@
     </div>
   </footer>
 
-  <script>
-    const pulsanteMenu = document.querySelector(".menu-toggle");
-    const menu = document.querySelector(".site-nav");
-    const iconaMenu = pulsanteMenu.querySelector("span");
-
-    function impostaMenu(aperto) {
-      pulsanteMenu.setAttribute("aria-expanded", String(aperto));
-      pulsanteMenu.setAttribute(
-        "aria-label",
-        aperto ? "Chiudi menu" : "Apri menu"
-      );
-
-      menu.classList.toggle("is-open", aperto);
-      iconaMenu.textContent = aperto ? "×" : "☰";
-    }
-
-    pulsanteMenu.addEventListener("click", () => {
-      const aperto =
-        pulsanteMenu.getAttribute("aria-expanded") === "true";
-
-      impostaMenu(!aperto);
-    });
-
-    document.addEventListener("keydown", (evento) => {
-      if (
-        evento.key === "Escape" &&
-        pulsanteMenu.getAttribute("aria-expanded") === "true"
-      ) {
-        impostaMenu(false);
-        pulsanteMenu.focus();
-      }
-    });
-
-    window.matchMedia("(max-width: 700px)")
-      .addEventListener("change", (evento) => {
-        if (!evento.matches) {
-          impostaMenu(false);
-        }
-      });
-  </script>
 </body>
 </html>

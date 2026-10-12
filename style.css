@@ -510,7 +510,7 @@ header > a {
     border-bottom: 1px solid #CCCCCC;
     z-index: 10;
   }
-  .site-header .site-nav.is-open {
+  .site-header:has(.menu-state:checked) .site-nav {
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -1253,7 +1253,7 @@ header > a {
 }
 /* Menu mobile a tutto schermo */
 @media (max-width: 700px) {
-  .site-header:has(.menu-toggle[aria-expanded=true]) {
+  .site-header:has(.menu-state:checked) {
     position: fixed;
     top: 0;
     left: 0;
@@ -1266,7 +1266,7 @@ header > a {
     z-index: 1000;
   }
   /* Logo centrato quando il menu è aperto */
-  .site-header:has(.menu-toggle[aria-expanded=true]) > a {
+  .site-header:has(.menu-state:checked) > a {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -1278,7 +1278,7 @@ header > a {
     text-decoration: none;
   }
   /* Pulsante di chiusura a sinistra */
-  .site-header .menu-toggle[aria-expanded=true] {
+  .site-header:has(.menu-state:checked) .menu-toggle {
     position: absolute;
     top: 50%;
     left: 12px;
@@ -1297,7 +1297,7 @@ header > a {
     cursor: pointer;
   }
   /* Sfondo del menu fino al fondo dello schermo */
-  .site-header .site-nav.is-open {
+  .site-header:has(.menu-state:checked) .site-nav {
     position: fixed;
     top: 70px;
     right: 0;
@@ -1316,7 +1316,7 @@ header > a {
     box-sizing: border-box;
   }
   /* Una fascia per ogni voce */
-  .site-header .site-nav.is-open > a {
+  .site-header:has(.menu-state:checked) .site-nav > a {
     display: flex;
     align-items: center;
     flex: 0 0 auto;
@@ -1335,7 +1335,7 @@ header > a {
     text-decoration: none;
   }
   /* Blocca lo scorrimento della pagina dietro al menu */
-  body:has(.site-header .menu-toggle[aria-expanded=true]) {
+  body:has(.site-header .menu-state:checked) {
     overflow: hidden;
   }
 }
@@ -1785,5 +1785,42 @@ body .illustrazioni-contatto a.link-cta span {
     top: 0;
     z-index: 1000;
     background-color: #FAF8F9;
+  }
+}
+.menu-state {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.menu-icon-close {
+  display: none;
+}
+
+@media (min-width: 701px) {
+  .menu-state {
+    display: none;
+  }
+}
+@media (max-width: 700px) {
+  .site-header .menu-toggle {
+    margin: 0;
+    line-height: 1;
+  }
+  .site-header:has(.menu-state:focus-visible) .menu-toggle {
+    outline: 2px solid #882335;
+    outline-offset: 3px;
+  }
+  .site-header:has(.menu-state:checked) .menu-icon-open {
+    display: none;
+  }
+  .site-header:has(.menu-state:checked) .menu-icon-close {
+    display: inline;
   }
 }/*# sourceMappingURL=style.css.map */

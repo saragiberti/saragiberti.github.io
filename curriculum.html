@@ -16,6 +16,13 @@
 
 <body>
   <header class="site-header">
+    <input
+  class="menu-state"
+  type="checkbox"
+  id="menu-state"
+  aria-label="Mostra o nascondi il menu principale"
+  aria-controls="menu-principale"
+>
     <a href="index.html" aria-label="Sara Giberti — Home">SG</a>
 
     <nav class="site-nav justify-content-md-end" id="menu-principale"
@@ -26,12 +33,10 @@
       <a href="contattami.html">Contattami</a>
     </nav>
 
-    <button class="menu-toggle" type="button"
-            aria-controls="menu-principale"
-            aria-expanded="false"
-            aria-label="Apri menu">
-      <span aria-hidden="true">☰</span>
-    </button>
+    <label class="menu-toggle" for="menu-state">
+  <span class="menu-icon-open" aria-hidden="true">☰</span>
+  <span class="menu-icon-close" aria-hidden="true">×</span>
+</label>
   </header>
 
   <main class="cv">
@@ -150,22 +155,5 @@
     </div>
   </section>
 
-  <script>
-    const pulsanteMenu = document.querySelector(".menu-toggle");
-    const menu = document.querySelector(".site-nav");
-
-    pulsanteMenu.addEventListener("click", () => {
-      const aperto = pulsanteMenu.getAttribute("aria-expanded") === "true";
-
-      pulsanteMenu.setAttribute("aria-expanded", String(!aperto));
-      pulsanteMenu.setAttribute(
-        "aria-label",
-        aperto ? "Apri menu" : "Chiudi menu"
-      );
-
-      pulsanteMenu.querySelector("span").textContent = aperto ? "☰" : "×";
-      menu.classList.toggle("is-open", !aperto);
-    });
-  </script>
 </body>
 </html>
